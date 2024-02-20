@@ -1,9 +1,11 @@
-import java.util.Scanner;
+public static String convertToTitle(int n) {
+        StringBuilder result = new StringBuilder();
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a number to convert to Excel-style column name:");
-        int number = scanner.nextInt();
-        System.out.println("Excel-style column name: " + convertToTitle(number));
+        while (n > 0) {
+            n--;
+            result.insert(0, (char)('A' + n % 26));
+            n /= 26;
+        }
+
+        return result.toString();
     }
